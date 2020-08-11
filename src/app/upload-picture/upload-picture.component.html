@@ -1,0 +1,16 @@
+<div class="float-right" style="padding-right:30px; padding-top: 20px;">
+    <a class="btn btn-outline-success" (click)="goBack()">Go back to the Album</a>
+
+</div>
+<br>
+
+<p>We will allow user to upload photo from here</p>
+
+<div style="width:500px; margin:auto;">
+    <div class="form-group">
+        <label>Upload Photo</label>
+        <input type="file" class="form-control-file" (change)="savePhoto($event.target.files[0])">
+    </div>
+
+
+</div>

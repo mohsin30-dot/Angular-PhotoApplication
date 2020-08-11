@@ -1,0 +1,45 @@
+<div class="float-right" style="padding-right: 30px;padding-top:20px;">
+    <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
+
+
+        <div class="btn-group" role="group">
+            <button id="btnGroupDrop1" type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Make this
+        </button>
+            <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+                <a class="dropdown-item" (click)="makeProfilePhoto()">Profile Photo</a>
+                <a class="dropdown-item" (click)="makeCoverPhoto()">Album Cover</a>
+            </div>
+        </div>
+    </div>
+</div>
+<br>
+
+<h1>Photo</h1>
+
+<div *ngIf="photo" style="max-width:450px; margin:auto;">
+    <img [src]="photo.photoUrl" class="rounded" width="400">
+</div>
+
+<h3>Comments</h3>
+
+<div style="width:600px; margin: auto;">
+
+    <div class="form-group">
+        <textarea class="form-control" rows="3" [(ngModel)]="newComment"></textarea>
+    </div>
+
+    <div class="float-right">
+        <button type="button" class="btn btn-primary" [disabled]="!newComment" (click)="saveComment()">Post Comment</button>
+    </div>
+
+    <br /><br /><br />
+
+    <button type="button" class="btn btn-info" (click)="changeOrder()">Change Order</button>
+    <br /><br />
+    <div *ngIf="allComments">
+        <div class="alert alert-primary" role="alert" style="text-align:right;" *ngFor="let comment of allComments">
+            {{comment.comment}} -- {{comment.createdBy}} on {{comment.dateCreated}}
+        </div>
+    </div>
+</div>
